@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meteo</string>
+    <string name="temperature">Temperatura</string>
+    <string name="windspeed">Vel. Viento</string>
+    <string name="elevation">Elevacion</string>
+    <string name="winddirection">Dir. Viento</string>
+    <string name="close">Cerrar</string>
+    <string name="sunny">Día Soleado</string>
+    <string name="cloudy">Día Nublado</string>
+    <string name="precipitation">Precipitaciones</string>
+    <string name="rain">Día Lluvioso</string>
+    <string name="snow">Día Nevado</string>
+    <string name="storm">Tormenta</string>
+</resources>

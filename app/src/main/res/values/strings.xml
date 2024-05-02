@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Meteo</string>
+    <string name="temperature">Temperature</string>
+    <string name="windspeed">Wind Speed</string>
+    <string name="elevation">Elevation</string>
+    <string name="winddirection">Wind Direction</string>
+    <string name="close">Close</string>
+    <string name="sunny">Sunny Day</string>
+    <string name="cloudy">Cloudy Day</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="rain">Rainy Day</string>
+    <string name="snow">Snowy Day</string>
+    <string name="storm">Storm</string>
+</resources>
