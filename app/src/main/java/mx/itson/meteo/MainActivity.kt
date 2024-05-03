@@ -139,7 +139,33 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
         } )
     }
 
- 
+    override fun onMapReady(googleMap: GoogleMap) {
+        try {
+            map = googleMap
+            map?.mapType = GoogleMap.MAP_TYPE_HYBRID
+
+            map?.clear()
+
+            val latLong = LatLng(27.9681409, -110.9189332)
+            map?.addMarker(MarkerOptions().position(latLong).draggable(true))
+            map?.moveCamera(CameraUpdateFactory.newLatLng(latLong))
+            map?.animateCamera(CameraUpdateFactory.zoomTo(12f))
+
+            map?.setOnMarkerDragListener(object : OnMarkerDragListener {
+                override fun onMarkerDrag(marker: Marker) {}
+                override fun onMarkerDragEnd(marker: Marker) {
+                    val latLng = marker.position
+                    getLocation(latLng.latitude.toString(), latLng.longitude.toString())
+                }
+                override fun onMarkerDragStart(marker: Marker) { }
+
+            })
+
+
+        }catch (ex : Exception) {
+            Log.e("Error loading map", ex.message.toString())
+        }
+    }
 
     override fun onClick(v: View?) {
         when(v?.id){
