@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
         mapFragment.getMapAsync(this)
         getLocation("27.9681409", "-110.9189332")
     }
+    //La funcion showWeatherDialog se encarga de llamar al layout activity_weather mediante Dialog
+    // e indicar los campos de tipo TextView que recibiran los datos de la API
     fun showWeatherDialog(temperature: String, elevation: String, windSpeed: String, windDirection: String, weatherCode: Int) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -61,6 +63,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
         val txtViewWeather = dialog.findViewById<TextView>(R.id.txtViewWeather)
         txtViewWeather.text = weatherCode.toString()
 
+        /*
+            Mediante if y else if se indica la condicion para indicar el texto que usara el clima
+            actual la imagen que cargara dependiendo del tipo de clima y el fondo que se cargara en
+            activity_weather dependiendo del valor de weatherCode para identificar el tipo de clima
+         */
         if (weatherCode == 0){
             txtViewWeather.setText(getText(R.string.sunny))
             imageViewWeatherCode.setImageResource(R.drawable.sun)
@@ -93,7 +100,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
         }
         dialog.show()
     }
-
+    /*
+        En getLocation se reemplazo el Toast por variables de solo lectura (Val) para llamar
+        los datos de la API que necesitamos solicitar al colocar el pin en una latitud y longitud
+        validas
+    */
     fun getLocation(lat: String, lon: String){
         val call : Call<Location> =
             RetrofitUtils.getApi()!!.getLocation(lat, lon,
