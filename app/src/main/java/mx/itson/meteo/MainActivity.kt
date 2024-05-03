@@ -61,31 +61,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
         val txtViewWeather = dialog.findViewById<TextView>(R.id.txtViewWeather)
         txtViewWeather.text = weatherCode.toString()
 
-        if (weatherCode == 0){
-            txtViewWeather.setText(getText(R.string.sunny))
-            imageViewWeatherCode.setImageResource(R.drawable.sun)
-            backViewWeatherCode.setBackgroundResource(R.drawable.sunny)
-        }else if (weatherCode in 1..3){
-            txtViewWeather.setText(getText(R.string.cloudy))
-            imageViewWeatherCode.setImageResource(R.drawable.cloud)
-            backViewWeatherCode.setBackgroundResource(R.drawable.cloudy)
-        }else if (weatherCode in 14..16){
-            txtViewWeather.setText(getText(R.string.precipitation))
-            imageViewWeatherCode.setImageResource(R.drawable.parcialrain)
-            backViewWeatherCode.setBackgroundResource(R.drawable.precipitation)
-        }else if (weatherCode in 25..27  || weatherCode in 70 .. 79 || weatherCode in 85 .. 86){
-            txtViewWeather.setText(getText(R.string.snow))
-            imageViewWeatherCode.setImageResource(R.drawable.snowy)
-            backViewWeatherCode.setBackgroundResource(R.drawable.snow)
-        }else if (weatherCode in 60..69 || weatherCode in 80..83){
-            txtViewWeather.setText(getText(R.string.rain))
-            imageViewWeatherCode.setImageResource(R.drawable.rainy)
-            backViewWeatherCode.setBackgroundResource(R.drawable.rain)
-        }else if (weatherCode in 95..99) {
-            txtViewWeather.setText(getText(R.string.storm))
-            imageViewWeatherCode.setImageResource(R.drawable.stormtime)
-            backViewWeatherCode.setBackgroundResource(R.drawable.storm)
-        }
+       
 
         val btnClose = dialog.findViewById<Button>(R.id.button_close)
         btnClose.setOnClickListener() {
